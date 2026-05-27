@@ -4,7 +4,7 @@
 
 > "AI can fill forms. But can you trust it to apply correctly?"
 
-Most AI tools generate cover letters and leave you to copy-paste. This spec **manages the entire application process** — discovering form fields, mapping your profile, filling everything, and pausing for your review before submit.
+Most AI tools generate cover letters and leave you to copy-paste. This spec **manages the entire application process**  -- discovering form fields, mapping your profile, filling everything, and pausing for your review before submit.
 
 This isn't a browser macro. It's **AI execution management for job applications**.
 
@@ -21,7 +21,7 @@ VS Code is the code editor where you will do all your work.
 1. Go to https://code.visualstudio.com/
 2. Click the big **Download** button
 3. Open the file you downloaded
-4. Follow the installer — click **Next** on each screen, then click **Install**
+4. Follow the installer  -- click **Next** on each screen, then click **Install**
 5. When it finishes, open VS Code
 
 ### Step 2: Install Git
@@ -31,7 +31,7 @@ Git is a tool that downloads and tracks code. You need it to download this proje
 1. Go to https://git-scm.com/downloads
 2. Click the download for your operating system (Windows, Mac, or Linux)
 3. Open the file you downloaded
-4. Follow the installer — use the default options on every screen, click **Next**, then **Install**
+4. Follow the installer  -- use the default options on every screen, click **Next**, then **Install**
 5. When it finishes, restart VS Code if it is already open
 
 **Check that Git is installed:**
@@ -49,7 +49,7 @@ Node.js is needed for the Playwright MCP browser tool that fills out application
 1. Go to https://nodejs.org/
 2. Click the **LTS** download button (the one that says "Recommended")
 3. Open the file you downloaded
-4. Follow the installer — use the default options, click **Next**, then **Install**
+4. Follow the installer  -- use the default options, click **Next**, then **Install**
 5. Restart VS Code after installing
 
 **Check that Node.js is installed:**
@@ -65,7 +65,7 @@ Claude Code is the AI agent that fills out job applications for you inside VS Co
 
 1. In VS Code, click the **Extensions** icon on the left sidebar (it looks like 4 small squares)
 2. In the search box, type: `Claude Code`
-3. Find **"Claude Code"** by Anthropic — click **Install**
+3. Find **"Claude Code"** by Anthropic  -- click **Install**
 4. Wait for the install to finish
 5. You will see a **sparkle icon (&#10033;)** appear in the top-right area of VS Code
 
@@ -168,9 +168,9 @@ Applying to jobs is repetitive, error-prone, and time-consuming:
 
 ## The Solution
 
-The Job Application Spec combines **universal form discovery** with the **Isagawa Kernel** — a self-building, self-improving enforcement system that runs *inside* the AI agent.
+The Job Application Spec combines **universal form discovery** with the **Isagawa Kernel**  -- a self-building, self-improving enforcement system that runs *inside* the AI agent.
 
-The agent doesn't use ATS templates. It treats every application page as unknown — discovering the form structure via Playwright MCP, mapping fields to your profile, and filling everything. Every failure makes it permanently smarter.
+The agent doesn't use ATS templates. It treats every application page as unknown  -- discovering the form structure via Playwright MCP, mapping fields to your profile, and filling everything. Every failure makes it permanently smarter.
 
 ---
 
@@ -212,7 +212,7 @@ Step 7: HANDLE QUESTIONS
     Gate: all questions answered, generated answers tagged
     │
 Step 8: REVIEW (HITL)
-    Present full summary — human approves, edits, or rejects
+    Present full summary  -- human approves, edits, or rejects
     Gate: human decision received
     │
 Step 9: SUBMIT
@@ -226,10 +226,10 @@ COMPLETE → /kernel/complete → lesson recorded
 
 The agent doesn't know Greenhouse from Lever from Workday. It discovers every form from scratch:
 
-1. **Snapshot** — `browser_snapshot` captures the page's accessibility tree
-2. **Extract** — Identify all interactive elements (text inputs, dropdowns, checkboxes, file uploads, radio buttons, textareas)
-3. **Classify** — Match each field label against the profile schema's field mapping table
-4. **Map** — Tag fields as `mapped` (profile match) or `unmapped` (needs human input or AI generation)
+1. **Snapshot**  -- `browser_snapshot` captures the page's accessibility tree
+2. **Extract**  -- Identify all interactive elements (text inputs, dropdowns, checkboxes, file uploads, radio buttons, textareas)
+3. **Classify**  -- Match each field label against the profile schema's field mapping table
+4. **Map**  -- Tag fields as `mapped` (profile match) or `unmapped` (needs human input or AI generation)
 
 ```json
 {
@@ -255,7 +255,7 @@ The agent doesn't know Greenhouse from Lever from Workday. It discovers every fo
 }
 ```
 
-Multi-page forms are handled automatically — the agent detects "Next" / "Continue" buttons, advances, and runs discovery again on each page.
+Multi-page forms are handled automatically  -- the agent detects "Next" / "Continue" buttons, advances, and runs discovery again on each page.
 
 ### Question Handling (Hybrid)
 
@@ -297,7 +297,7 @@ GENERATED ANSWERS:
   Source: Claude Code generated
 
 UNMAPPED FIELDS (need your input):
-  ⚠ "Referral source": [empty — no profile match]
+  ⚠ "Referral source": [empty  -- no profile match]
 
 STATUS: Ready for review
 ==================
@@ -406,25 +406,25 @@ This table is a starting point. The agent extends it via `/kernel/learn` as new 
 | Failure | Recovery |
 |---------|----------|
 | Page won't load | Report URL error, stop |
-| Login wall | Flag HITL — user logs in, agent resumes |
-| CAPTCHA | Flag HITL — user solves, agent resumes |
+| Login wall | Flag HITL  -- user logs in, agent resumes |
+| CAPTCHA | Flag HITL  -- user solves, agent resumes |
 | File upload fails | Retry once, then flag HITL |
 | Field fill fails | Try alternate selector, then flag HITL |
 | Unknown form structure | Snapshot + flag entire page for HITL |
 
-The agent never silently skips a field. Every field appears in the HITL review — mapped, unmapped, or failed.
+The agent never silently skips a field. Every field appears in the HITL review  -- mapped, unmapped, or failed.
 
 ---
 
 ## The Kernel (Enforcement Engine)
 
-The Isagawa Kernel is the enforcement engine that runs inside Claude Code. It's not a linter or a post-hoc checker — it **gates every action in real-time**.
+The Isagawa Kernel is the enforcement engine that runs inside Claude Code. It's not a linter or a post-hoc checker  -- it **gates every action in real-time**.
 
 ### What It Does
 
-1. **Self-builds** — On first run, the kernel reads the spec, extracts patterns, and builds its own protocol
-2. **Self-enforces** — Every 10 actions, the hook forces the agent to re-read its protocol (`/kernel/anchor`)
-3. **Self-improves** — After every failure, `/kernel/learn` updates the protocol permanently
+1. **Self-builds**  -- On first run, the kernel reads the spec, extracts patterns, and builds its own protocol
+2. **Self-enforces**  -- Every 10 actions, the hook forces the agent to re-read its protocol (`/kernel/anchor`)
+3. **Self-improves**  -- After every failure, `/kernel/learn` updates the protocol permanently
 
 ### How It Works
 
@@ -440,10 +440,10 @@ session-start → anchor → WORK ───────────────�
 
 The hook script (`universal-gate-enforcer.py`) intercepts every Write, Edit, and Bash command. It blocks if:
 
-1. **Session not started** — Must invoke `/kernel/session-start` first
-2. **Lesson not recorded** — A failure occurred but `/kernel/learn` wasn't called
-3. **Protocol not anchored** — Must re-read protocol via `/kernel/anchor`
-4. **Action limit reached** — 10 actions since last anchor, time to re-center
+1. **Session not started**  -- Must invoke `/kernel/session-start` first
+2. **Lesson not recorded**  -- A failure occurred but `/kernel/learn` wasn't called
+3. **Protocol not anchored**  -- Must re-read protocol via `/kernel/anchor`
+4. **Action limit reached**  -- 10 actions since last anchor, time to re-center
 
 ```python
 # Simplified gate logic:
@@ -466,14 +466,14 @@ The agent cannot bypass these gates. Every failure becomes a permanent lesson. E
 
 ## Supported ATS Platforms
 
-The spec uses universal form discovery — it works on any application page. Tested on:
+The spec uses universal form discovery  -- it works on any application page. Tested on:
 
 | ATS | Status | Notes |
 |-----|--------|-------|
 | **Greenhouse** | Tested | Complex forms (30+ fields), comboboxes, dropdowns |
 | **Lever** | Tested | Simpler forms (15-20 fields), text + radio |
-| **Workday** | Untested | Should work — same discovery approach |
-| **iCIMS** | Untested | Should work — same discovery approach |
+| **Workday** | Untested | Should work  -- same discovery approach |
+| **iCIMS** | Untested | Should work  -- same discovery approach |
 | **Any web form** | Untested | Universal discovery handles any accessible form |
 
 ---
@@ -484,7 +484,7 @@ The spec uses universal form discovery — it works on any application page. Tes
 job-application-spec/
 ├── .claude/
 │   ├── commands/
-│   │   └── job-apply.md                    # /job-apply — apply to a job posting
+│   │   └── job-apply.md                    # /job-apply  -- apply to a job posting
 │   └── skills/
 │       └── job-application/
 │           ├── SKILL.md                    # Identity, philosophy, tooling rules
@@ -533,7 +533,7 @@ job-application-spec/
 2. The AI opens a browser, discovers every form field via accessibility tree
 3. Fields are mapped to your profile and filled automatically
 4. Custom questions get tailored answers from your profile + the job posting
-5. You review everything before submit — approve, edit, or reject
+5. You review everything before submit  -- approve, edit, or reject
 6. Every failure makes the system permanently smarter
 
 ```
@@ -546,7 +546,7 @@ Input:
   ├── Map: 12 fields from profile, 13 best-guess, 7 skipped (voluntary)
   ├── Fill: Text inputs, dropdowns, comboboxes, checkboxes
   ├── Generate: "Top two accomplishments" textarea from profile experience
-  ├── Review: Full summary presented — you approve or edit
+  ├── Review: Full summary presented  -- you approve or edit
   └── Submit: Click submit (or log dry-run)
 ```
 
@@ -610,7 +610,7 @@ claude                    # Restart
 
 Job applications are one domain. The Isagawa Kernel supports **any** domain.
 
-The kernel is domain-agnostic — it enforces how AI executes, not just what it generates. What you see here in job applications can be applied to:
+The kernel is domain-agnostic  -- it enforces how AI executes, not just what it generates. What you see here in job applications can be applied to:
 
 - Test automation ([Selenium QA](https://github.com/isagawa-qa/platform-selenium))
 - Healthcare compliance ([Healthcare QA](https://github.com/isagawa-co/healthcare-qa-spec))
@@ -618,7 +618,7 @@ The kernel is domain-agnostic — it enforces how AI executes, not just what it 
 - Incident response ([Incident Response](https://github.com/isagawa-co/incident-response-spec))
 - Any process where AI needs to execute correctly, not just generate output
 
-The kernel is available separately. Domain specs — pre-loaded with patterns, anti-patterns, and quality gates for specific verticals — are built by the [Domain Spec Factory](https://github.com/isagawa-co/domain-spec-factory).
+The kernel is available separately. Domain specs  -- pre-loaded with patterns, anti-patterns, and quality gates for specific verticals  -- are built by the [Domain Spec Factory](https://github.com/isagawa-co/domain-spec-factory).
 
 ---
 
@@ -639,7 +639,7 @@ This is AI you can actually delegate job applications to.
 
 ## Services
 
-We deliver AI execution management solutions powered by the Isagawa Kernel. The kernel manages how AI executes — gating every action at runtime so the AI can only do it right.
+We deliver AI execution management solutions powered by the Isagawa Kernel. The kernel manages how AI executes  -- gating every action at runtime so the AI can only do it right.
 
 ### Demo
 
@@ -651,8 +651,8 @@ We'll run a live job application on **YOUR** target posting in 30 minutes. No se
 
 ## License
 
-[MIT](LICENSE) — Copyright (c) 2025 Isagawa
+[Proprietary -- Evaluation Use Only](LICENSE). Copyright (c) 2025 Isagawa. Commercial license required for production use. Contact alain@isagawa.co.
 
 ---
 
-Built with the [Isagawa Kernel](https://github.com/isagawa-co/isagawa-kernel) — self-building, self-improving, safety-first.
+Built with the [Isagawa Kernel](https://github.com/isagawa-co/isagawa-kernel)  -- self-building, self-improving, safety-first.
