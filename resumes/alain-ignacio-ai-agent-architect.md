@@ -28,11 +28,11 @@ The agent scans any repo, writes its own protocol and enforcement hooks, and imp
 
 Hooks run at the tool-call boundary so agents cannot bypass enforcement via prompt engineering or state file edits. A re-centering mechanism fires every N actions, forcing the agent to re-read its protocol and review accumulated lessons, making drift architecturally impossible over long sessions. State survives context compaction and restarts; the agent resumes exactly where it left off. The kernel is domain-agnostic — it governs how the agent works; pair it with a domain spec to teach it what to build.
 
-### Domain Spec Factory (Proprietary) · github.com/isagawa-co/domain-spec-factory
+### Agent Factory (Proprietary) · github.com/isagawa-co/domain-spec-factory
 
-Autonomous spec construction. Given an industry vertical as input, the kernel-governed agent researches the domain, builds a complete installable domain spec from original research rather than templates, and validates it before publishing. The kernel governs the agent while it builds specs that are themselves governed by the kernel — a recursive loop. 14 domain specs manufactured without human intervention across healthcare, DevOps, compliance, real estate, and financial verticals.
+Autonomous agent harness construction. Given an industry vertical as input, the kernel-governed agent researches the domain, builds a complete governed harness from original research rather than templates, and validates it before publishing. The kernel governs the agent while it builds harnesses that are themselves governed by the kernel — a recursive loop. 14 agent harnesses manufactured without human intervention across healthcare, DevOps, compliance, real estate, and financial verticals.
 
-The emerging SDD ecosystem (Amazon Kiro, GitHub Spec Kit, BMAD) produces planning artifacts that guide agents. None enforce compliance during execution or learn from failures after. Domain specs close both gaps: they are operational artifacts that self-assemble governed workspaces with enforcement and quality gates built in.
+The emerging SDD ecosystem (Amazon Kiro, GitHub Spec Kit, BMAD) produces planning artifacts that guide agents. None enforce compliance during execution or learn from failures after. Agent Factory closes both gaps: each harness is an operational artifact that self-assembles a governed workspace with enforcement and quality gates built in.
 
 ### Autonomous Delivery Pipeline
 
