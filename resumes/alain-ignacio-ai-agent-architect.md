@@ -26,7 +26,7 @@ The core invention. A self-building governance system for autonomous AI agents t
 
 The agent scans any repo, writes its own protocol and enforcement hooks, and improves them mechanically every time it fails. When a test fails or a protocol violation is detected, the agent is blocked from writing until it records a lesson. That lesson updates both the agent's knowledge and its enforcement rules simultaneously. The same mistake becomes impossible, not because the agent remembers, but because the system enforces.
 
-Hooks run at the tool-call boundary so agents cannot bypass enforcement via prompt engineering or state file edits. A re-centering mechanism fires every N actions, forcing the agent to re-read its protocol and review accumulated lessons, making drift architecturally impossible over long sessions. State survives context compaction and restarts. The agent resumes exactly where it left off. The kernel is domain-agnostic. It governs how the agent works. Pair it with a domain spec to teach it what to build.
+Hooks run at the tool-call boundary so agents cannot bypass enforcement via prompt engineering or state file edits. A re-centering mechanism fires every N actions, forcing the agent to re-read its protocol and review accumulated lessons, making drift architecturally impossible over long sessions. State survives context compaction and restarts. The agent resumes exactly where it left off. The kernel is domain-agnostic. It governs how the agent works. Pair it with an agent harness from the Agent Factory to define what it builds.
 
 ### Agent Factory (Proprietary) · github.com/isagawa-co/domain-spec-factory
 
