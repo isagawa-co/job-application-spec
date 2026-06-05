@@ -61,7 +61,7 @@ All five platforms share the same pattern: a kernel-governed AI agent reads refe
 
 **Vibe Coder** · github.com/isagawa-co/vibe-coder-spec. AI-powered app building for non-technical founders. The kernel-governed agent handles all technical decisions (stack, architecture, database, deployment) and explains every choice in plain English. The same governance model applied to a consumer product direction.
 
-**AutoApply** · isagawa.co/job-application. End-to-end job application pipeline with Playwright MCP for universal form discovery, profile-driven form fill across any ATS, and a hook-enforced human review gate before any submission.
+**AutoApply** · isagawa.co/job-application. End-to-end job application pipeline with Playwright MCP for universal form discovery, profile-driven form fill across any ATS, and a hook-enforced human review gate before any submission. This application was submitted using it.
 
 **Attestation Pipeline** · isagawa.co/attestation. Every pipeline run signed with Sigstore and logged to Rekor. The full intent chain from hashed user input through shipped artifact is verifiable on a public tamper-evident log.
 
