@@ -24,15 +24,15 @@ Built quality enforcement systems for over two decades before abstracting those 
 
 The core invention. A self-building governance system for autonomous AI agents that enforces compliance at the tool-call boundary, not in the prompt.
 
-The agent scans any repo, writes its own protocol and enforcement hooks, and improves them mechanically every time it fails. When a test fails or a protocol violation is detected, the agent is blocked from writing until it records a lesson. That lesson updates both the agent's knowledge and its enforcement rules simultaneously — the same mistake becomes impossible, not because the agent remembers, but because the system enforces.
+The agent scans any repo, writes its own protocol and enforcement hooks, and improves them mechanically every time it fails. When a test fails or a protocol violation is detected, the agent is blocked from writing until it records a lesson. That lesson updates both the agent's knowledge and its enforcement rules simultaneously. The same mistake becomes impossible, not because the agent remembers, but because the system enforces.
 
-Hooks run at the tool-call boundary so agents cannot bypass enforcement via prompt engineering or state file edits. A re-centering mechanism fires every N actions, forcing the agent to re-read its protocol and review accumulated lessons, making drift architecturally impossible over long sessions. State survives context compaction and restarts; the agent resumes exactly where it left off. The kernel is domain-agnostic — it governs how the agent works; pair it with a domain spec to teach it what to build.
+Hooks run at the tool-call boundary so agents cannot bypass enforcement via prompt engineering or state file edits. A re-centering mechanism fires every N actions, forcing the agent to re-read its protocol and review accumulated lessons, making drift architecturally impossible over long sessions. State survives context compaction and restarts. The agent resumes exactly where it left off. The kernel is domain-agnostic. It governs how the agent works. Pair it with a domain spec to teach it what to build.
 
 ### Agent Factory (Proprietary) · github.com/isagawa-co/domain-spec-factory
 
-Autonomous agent harness construction. Given an industry vertical as input, the kernel-governed agent researches the domain, builds a complete governed harness from original research rather than templates, and validates it before publishing. The kernel governs the agent while it builds harnesses that are themselves governed by the kernel — a recursive loop. 14 agent harnesses manufactured without human intervention across healthcare, DevOps, compliance, real estate, and financial verticals.
+Autonomous agent harness construction. Given an industry vertical as input, the kernel-governed agent researches the domain, builds a complete governed harness from original research rather than templates, and validates it before publishing. The kernel governs the agent while it builds harnesses that are themselves kernel-governed, a self-reinforcing loop. 14 agent harnesses manufactured without human intervention across healthcare, DevOps, compliance, real estate, and financial verticals.
 
-The emerging SDD ecosystem (Amazon Kiro, GitHub Spec Kit, BMAD) produces planning artifacts that guide agents. None enforce compliance during execution or learn from failures after. Agent Factory closes both gaps: each harness is an operational artifact that self-assembles a governed workspace with enforcement and quality gates built in.
+The emerging SDD ecosystem (Amazon Kiro, GitHub Spec Kit, BMAD) produces planning artifacts that guide agents. None enforce compliance during execution or learn from failures after. Agent Factory closes both gaps. Each harness is an operational artifact that self-assembles a governed workspace with enforcement and quality gates built in.
 
 ### Autonomous Delivery Pipeline
 
@@ -45,25 +45,25 @@ The emerging SDD ecosystem (Amazon Kiro, GitHub Spec Kit, BMAD) produces plannin
 
 All five platforms share the same pattern: a kernel-governed AI agent reads reference implementations before writing any code, enforces a 5-layer architecture during generation, and gets permanently smarter after every failure.
 
-**LLM Evaluation Platform (DeepEval)** — Structured LLM evaluation with 29+ metrics across RAG, Chat, Agent, and Conversational pipelines. The agent selects metrics appropriate to the pipeline type, sets thresholds from tested defaults, generates pytest-native eval suites, and runs them with failure triage. Golden datasets drive every test. No vibes, no spreadsheets.
+**LLM Evaluation Platform (DeepEval).** Structured LLM evaluation with 29+ metrics across RAG, Chat, Agent, and Conversational pipelines. The agent selects metrics appropriate to the pipeline type, sets thresholds from tested defaults, generates pytest-native eval suites, and runs them with failure triage. Golden datasets drive every test. No vibes, no spreadsheets.
 
-**QA Platform: Playwright** — 5-layer TypeScript/Playwright test automation with three test paths (UI, API, and hybrid) sharing the same architecture. Playwright MCP provides real-time element and endpoint discovery during test generation. Locators live in one place, endpoints live in one place, business logic lives in Tasks and Roles, tests only assert.
+**QA Platform: Playwright.** 5-layer TypeScript/Playwright test automation with three test paths (UI, API, and hybrid) sharing the same architecture. Playwright MCP provides real-time element and endpoint discovery during test generation. Locators live in one place, endpoints live in one place, business logic lives in Tasks and Roles, tests only assert.
 
-**QA Platform: Selenium** — Same 5-layer governed architecture in Python/Selenium/pytest. The agent discovers page elements, generates Page Objects, Tasks, Roles, and Tests following strict architectural separation. Kernel enforcement prevents layer mixing and pattern drift across sessions.
+**QA Platform: Selenium.** Same 5-layer governed architecture in Python/Selenium/pytest. The agent discovers page elements, generates Page Objects, Tasks, Roles, and Tests following strict architectural separation. Kernel enforcement prevents layer mixing and pattern drift across sessions.
 
-**SSH Compliance Platform** · isagawa.co/ssh-compliance — Automated SSH compliance validation across 8 security frameworks: STIG, CIS, NIST, FIPS, PCI DSS, HIPAA, SOC 2, and ISO 27001. Connects to infrastructure, runs every check, produces auditor-ready reports with captured command output as evidence per check.
+**SSH Compliance Platform** · isagawa.co/ssh-compliance. Automated SSH compliance validation across 8 security frameworks: STIG, CIS, NIST, FIPS, PCI DSS, HIPAA, SOC 2, and ISO 27001. Connects to infrastructure, runs every check, produces auditor-ready reports with captured command output as evidence per check.
 
-**Docker Compliance Platform** — Automated container image validation against CIS, DISA-STIG, and FIPS standards. Pulls the image, detects OS and package manager, runs every check, and produces structured compliance reports with pass/fail status per rule, per framework, per image.
+**Docker Compliance Platform.** Automated container image validation against CIS, DISA-STIG, and FIPS standards. Pulls the image, detects OS and package manager, runs every check, and produces structured compliance reports with pass/fail status per rule, per framework, per image.
 
 ---
 
 ## Also Shipped (isagawa-co, Proprietary)
 
-**Vibe Coder** · github.com/isagawa-co/vibe-coder-spec — AI-powered app building for non-technical founders. The kernel-governed agent handles all technical decisions (stack, architecture, database, deployment) and explains every choice in plain English. The same governance model applied to a consumer product direction.
+**Vibe Coder** · github.com/isagawa-co/vibe-coder-spec. AI-powered app building for non-technical founders. The kernel-governed agent handles all technical decisions (stack, architecture, database, deployment) and explains every choice in plain English. The same governance model applied to a consumer product direction.
 
-**AutoApply** · isagawa.co/job-application — End-to-end job application pipeline with Playwright MCP for universal form discovery, profile-driven form fill across any ATS, and a hook-enforced human review gate before any submission.
+**AutoApply** · isagawa.co/job-application. End-to-end job application pipeline with Playwright MCP for universal form discovery, profile-driven form fill across any ATS, and a hook-enforced human review gate before any submission.
 
-**Attestation Pipeline** · isagawa.co/attestation — Every pipeline run signed with Sigstore and logged to Rekor. The full intent chain from hashed user input through shipped artifact is verifiable on a public tamper-evident log.
+**Attestation Pipeline** · isagawa.co/attestation. Every pipeline run signed with Sigstore and logged to Rekor. The full intent chain from hashed user input through shipped artifact is verifiable on a public tamper-evident log.
 
 ---
 
