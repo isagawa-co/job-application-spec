@@ -84,6 +84,18 @@
     "sponsorship_required": false,
     "visa_status": "US Citizen"
   },
+  "demographics": {
+    "gender": "Male",
+    "race": "Asian",
+    "ethnicity": "Filipino",
+    "hispanic_latino": false,
+    "veteran_status": "I am not a protected veteran",
+    "disability_status": "I do not have a disability"
+  },
+  "relocation": {
+    "willing_to_relocate": true,
+    "relocation_answer": "Yes"
+  },
   "question_bank": {
     "why_interested": "I've spent 25 years building quality enforcement systems and the last year abstracting those patterns into AI agent governance. I built the Isagawa Kernel — an open-source system where AI agents self-build their own enforcement infrastructure from authored specifications. I'm looking to apply this work at an organization pushing the frontier of agent infrastructure.",
     "strengths": "Mechanical enforcement design — I build systems that make failure impossible rather than unlikely. Hook-based governance at the tool-call boundary, autonomous task cycling, and self-improving agents that compound knowledge across sessions.",
