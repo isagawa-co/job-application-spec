@@ -36,7 +36,7 @@ The emerging SDD ecosystem (Amazon Kiro, GitHub Spec Kit, BMAD) produces plannin
 
 ### Autonomous Delivery Pipeline
 
-`/kernel/backlog` (intent + hash) → `/kernel/task-builder` (atomic decomposition + gate contracts) → `run-task.sh` (headless batch, one `claude -p` per task) → `/kernel/complete` → signed to Rekor. One sentence to verified, attested artifact with no human intervention between start and finish. 80+ signed runs. The pipeline built the portfolio site that describes it.
+`/kernel/backlog` (intent + hash) → `/kernel/task-builder` (atomic decomposition + gate contracts) → `run-task.sh` (headless batch, one `claude -p` per task) → `/kernel/complete` → signed to Rekor. One sentence to verified, attested artifact with no human intervention between start and finish. 80+ signed runs. The pipeline built the portfolio site that describes it (isagawa.co).
 
 ---
 
