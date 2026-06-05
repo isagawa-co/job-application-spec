@@ -1,0 +1,99 @@
+{
+  "personal": {
+    "first_name": "Alain",
+    "last_name": "Ignacio",
+    "email": "alain@isagawa.co",
+    "phone": "808-354-4526",
+    "headline": "AI Agent Architect | Founder, Isagawa"
+  },
+  "location": {
+    "address": "",
+    "city": "Las Vegas",
+    "state": "NV",
+    "zip": "",
+    "country": "United States"
+  },
+  "experience": [
+    {
+      "company": "HMSA",
+      "title": "QA Lead",
+      "start_date": "2026-03-30",
+      "end_date": "",
+      "current": true,
+      "description": "Returned to Hawaii's largest health insurer to lead QA for claims processing and establish a new QA automation function. Leading testing across adjudication workflows and EDI integrations while standing up the automation function from the ground up. The evaluation scope covers UI, API, and database testing layers across HMSA's enterprise environment and compliance constraints."
+    },
+    {
+      "company": "Isagawa",
+      "title": "Founder & Systems Architect",
+      "start_date": "2025-01-01",
+      "end_date": "",
+      "current": true,
+      "description": "Built AI agent governance infrastructure. Shipped the Isagawa Kernel (open-source MIT), Domain Spec Factory, five production QA platforms, and multiple architectural innovations solving enforcement, drift, and consistency problems in autonomous AI agent workflows. 80+ attested pipeline runs, 800+ autonomous tasks executed, 9 production repos — all cryptographically signed to Sigstore/Rekor."
+    },
+    {
+      "company": "Helios Digital",
+      "title": "Senior QA Engineer",
+      "start_date": "2025-05-01",
+      "end_date": "2026-03-01",
+      "current": false,
+      "description": "Founding QA hire for seed-stage startup building an AI-powered financial analysis platform. Built a QA Center of Excellence enabling 4-5x improvement in test velocity per engineer and reduced new engineer onboarding from three weeks to one week through AI-enforced patterns. Established the automation function from zero while integrating Claude Code into daily development workflows."
+    },
+    {
+      "company": "Nakupuna Consulting",
+      "title": "Senior QA Automation Engineer",
+      "start_date": "2022-11-01",
+      "end_date": "2025-05-01",
+      "current": false,
+      "description": "Established the test automation function from scratch for Navy PeopleSoft ERP in a highly restricted environment. Scaled the automation team from zero to four engineers within six months, getting Python/Selenium approved in an environment where only legacy tools had been authorized."
+    },
+    {
+      "company": "HMSA",
+      "title": "Test Manager",
+      "start_date": "2013-05-01",
+      "end_date": "2022-11-01",
+      "current": false,
+      "description": "Nine-year tenure at Hawaii's largest health insurer progressing from QA Analyst to Test Manager. Defined QA strategy and testing standards across Claims Processing, EDI, Membership, Billing, Enrollment, HL7-FHIR, and RESTful services."
+    }
+  ],
+  "education": [
+    {
+      "school": "",
+      "degree": "",
+      "field": "",
+      "graduation_year": ""
+    }
+  ],
+  "links": {
+    "linkedin": "linkedin.com/in/alain-ignacio",
+    "github": "github.com/isagawa-co",
+    "portfolio": "isagawa.co",
+    "other": [
+      "github.com/isagawa-qa"
+    ]
+  },
+  "resume_path": "D:/my_ai_projects/project_test_repos/job-application-spec/resumes/alain-ignacio-ai-agent-architect.pdf",
+  "cover_letter_path": "",
+  "preferences": {
+    "salary_min": 180000,
+    "salary_max": 250000,
+    "remote_preference": "remote",
+    "start_date": "immediate"
+  },
+  "authorization": {
+    "work_authorized": true,
+    "sponsorship_required": false,
+    "visa_status": "US Citizen"
+  },
+  "question_bank": {
+    "why_interested": "I've spent 25 years building quality enforcement systems and the last year abstracting those patterns into AI agent governance. I built the Isagawa Kernel — an open-source system where AI agents self-build their own enforcement infrastructure from authored specifications. I'm looking to apply this work at an organization pushing the frontier of agent infrastructure.",
+    "strengths": "Mechanical enforcement design — I build systems that make failure impossible rather than unlikely. Hook-based governance at the tool-call boundary, autonomous task cycling, and self-improving agents that compound knowledge across sessions.",
+    "salary_expectations": "180,000 to 250,000 depending on equity and remote arrangement",
+    "start_date": "Immediately available",
+    "custom": {
+      "years_of_experience": "25+ years in QA and systems architecture, 1+ year in AI agent engineering",
+      "open_source": "Isagawa Kernel — MIT licensed, github.com/isagawa-co/isagawa-kernel",
+      "agent_frameworks": "Built custom kernel-level governance; familiar with Claude Code, MCP, Playwright MCP",
+      "languages": "Python, TypeScript, JavaScript, SQL"
+    }
+  }
+}
