@@ -1,0 +1,18 @@
+{
+  "domain": "job_application",
+  "setup_complete": true,
+  "protocol_created": true,
+  "protocol_path": ".claude/protocols/job_application-protocol.md",
+  "anchored": false,
+  "actions_since_anchor": 0,
+  "actions_limit": 10,
+  "completed_tasks": [],
+  "skipped_tasks": [],
+  "current_task": null,
+  "cycling": false,
+  "task_folder": "tasks/",
+  "total_tasks": 0,
+  "lesson_recorded": false,
+  "lessons_count": 0,
+  "timestamp": "2026-06-01T00:00:00Z"
+}

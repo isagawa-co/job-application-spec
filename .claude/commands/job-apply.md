@@ -42,11 +42,26 @@ Apply to a job posting. User provides URL, agent handles the rest.
    - Validate per → `references/profile-schema.md`
    - If missing or invalid, stop and report
 
+4b. **Duplicate check (MANDATORY):**
+   - Read `applications/log.json`
+   - Check if any entry matches this company + title (case-insensitive)
+   - If match found: STOP and report "Already applied on [date] — skipping to prevent duplicate"
+   - If no match: proceed
+
 5. **Execute workflow:**
    - Follow steps 1-9 in `workflow.md`
    - Read each step's reference file before executing
    - Update state after each step
    - On any failure → `/kernel/fix` → `/kernel/learn`
+
+5b. **Generate cover letter (if form has cover letter field):**
+   - Check the application form for a cover letter section (text area or file upload)
+   - If present: draft a tailored cover letter using the job description and profile
+   - Cover letters must be written fresh for each application — do NOT reuse from prior applications
+   - Use the job title, company, and key requirements to personalize the opening and closing
+   - Draw from `profile.json` experience, question_bank, and open_source fields
+   - No em-dashes anywhere in the cover letter text
+   - Present draft to user at the HITL gate (Step 6) — do not fill the field until approved
 
 6. **HITL gate (Step 8 — MANDATORY):**
    - After all fields are filled and questions answered, STOP
@@ -55,7 +70,12 @@ Apply to a job posting. User provides URL, agent handles the rest.
    - Do NOT submit without explicit user approval
    - This gate is enforced by the workflow — it cannot be skipped
 
-7. **Complete:**
+7. **Log application (MANDATORY after submission):**
+   - Read `applications/log.json`
+   - Append new entry: company, title, url, job_listing_url, ats, date_applied, score, location, compensation, status: "submitted", notes: ""
+   - Write updated array back to `applications/log.json`
+
+8. **Complete:**
    - Invoke `/kernel/complete`
 
 ## File Upload Requirement

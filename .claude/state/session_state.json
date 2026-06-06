@@ -1,0 +1,19 @@
+{
+  "session_started": true,
+  "domain": "job_application",
+  "timestamp": "2026-06-01T00:00:00Z",
+  "needs_restart": true,
+  "resume_after_restart": "anchor",
+  "needs_learn": false,
+  "needs_learn_reason": null,
+  "one_shot": false,
+  "actions_log": [],
+  "context": {
+    "current_task": null,
+    "task_folder": "tasks/",
+    "progress": "0/0 tasks complete",
+    "last_completed": null,
+    "next_step": "Restart Claude Code, then say 'continue' to anchor and begin",
+    "notes": "Domain setup complete. Profile onboarding required before first /job-apply — run profile-onboarding.md steps."
+  }
+}
