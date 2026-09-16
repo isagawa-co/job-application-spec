@@ -71,7 +71,7 @@ Claude Code is the AI agent that fills out job applications for you inside VS Co
 
 > **You need an Anthropic account.** If you do not have one, go to https://claude.ai and create an account first.
 
-### Step 5: Download This Project
+### Step 5: Download This Project and the Kernel
 
 Do this inside VS Code. Do not use a separate terminal.
 
@@ -84,7 +84,21 @@ Do this inside VS Code. Do not use a separate terminal.
    ```bash
    git clone https://github.com/isagawa-co/job-application-spec.git
    ```
-4. Wait for the download to finish
+4. Download the Isagawa Kernel (the engine that runs and enforces the agent):
+   ```bash
+   git clone https://github.com/isagawa-co/isagawa-kernel.git
+   ```
+5. Copy the kernel into the project. Paste these lines exactly as shown (they work on Windows, Mac, and Linux):
+   ```bash
+   cp -r isagawa-kernel/.claude/commands/kernel job-application-spec/.claude/commands/kernel
+   cp -r isagawa-kernel/.claude/hooks job-application-spec/.claude/hooks
+   cp -r isagawa-kernel/.claude/skills/kernel-domain-setup job-application-spec/.claude/skills/kernel-domain-setup
+   cp -r isagawa-kernel/.claude/skills/autonomous-cycling job-application-spec/.claude/skills/autonomous-cycling
+   cp -r isagawa-kernel/lib job-application-spec/lib
+   cp isagawa-kernel/CLAUDE.md job-application-spec/CLAUDE.md
+   cp isagawa-kernel/run-task.sh job-application-spec/run-task.sh
+   ```
+6. Check that the `job-application-spec` folder now has a `CLAUDE.md` file and a `lib` folder
 
 ### Step 6: Open the Project in VS Code
 
@@ -495,11 +509,15 @@ job-application-spec/
 │               ├── form-discovery.md       # Universal form discovery via MCP snapshot
 │               ├── question-handling.md    # Template bank + AI generation fallback
 │               └── hitl-review.md          # Human review before submit
+├── .gitignore                              # Keeps your personal data out of git
 ├── .mcp.json                               # Playwright MCP server config
+├── LICENSE
 └── README.md
 ```
 
-### After Domain Setup (what gets created)
+### After Kernel Install and Domain Setup (what gets added)
+
+The kernel install (Step 5) adds the kernel commands, hooks, skills, `lib/`, `run-task.sh`, and `CLAUDE.md`. Domain setup then creates the protocol, lessons, state, and your `profile.json`. Everything personal or machine-specific is listed in `.gitignore`, so it stays on your computer.
 
 ```
 job-application-spec/
@@ -515,13 +533,17 @@ job-application-spec/
 │   ├── protocols/
 │   │   └── job_application-protocol.md     # Self-built protocol (index of rules)
 │   ├── skills/
+│   │   ├── kernel-domain-setup/            # Kernel domain setup skill
 │   │   └── job-application/                # (unchanged)
 │   └── state/
 │       ├── session_state.json              # Session tracking, context, actions log
 │       └── job_application_workflow.json   # Workflow state, anchor counter
+├── lib/                                    # Kernel helpers used by /kernel/learn
+├── applications/log.json                   # Every application you submit
 ├── profile.json                            # Your structured profile (from resume)
 ├── .mcp.json
 ├── CLAUDE.md                               # Kernel instructions
+├── run-task.sh                             # Kernel task runner
 └── README.md
 ```
 
@@ -557,12 +579,24 @@ Input:
 ### Prerequisites
 
 - Node.js 18+ (for Playwright MCP)
+- Python 3 (the kernel hooks are Python scripts)
 - [Claude Code](https://claude.ai/claude-code)
 
-### 1. Clone
+### 1. Clone the spec and install the kernel
 
 ```bash
 git clone https://github.com/isagawa-co/job-application-spec.git
+git clone https://github.com/isagawa-co/isagawa-kernel.git
+
+# Copy the kernel into the project
+cp -r isagawa-kernel/.claude/commands/kernel job-application-spec/.claude/commands/kernel
+cp -r isagawa-kernel/.claude/hooks job-application-spec/.claude/hooks
+cp -r isagawa-kernel/.claude/skills/kernel-domain-setup job-application-spec/.claude/skills/kernel-domain-setup
+cp -r isagawa-kernel/.claude/skills/autonomous-cycling job-application-spec/.claude/skills/autonomous-cycling
+cp -r isagawa-kernel/lib job-application-spec/lib
+cp isagawa-kernel/CLAUDE.md job-application-spec/CLAUDE.md
+cp isagawa-kernel/run-task.sh job-application-spec/run-task.sh
+
 cd job-application-spec
 ```
 
