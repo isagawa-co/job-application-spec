@@ -1,0 +1,23 @@
+# Personal data the agent creates while you use it. Never commit these.
+profile.json
+applications/
+resumes/
+cover-letters/
+.claude/skills/job-application/references/resume.md
+*.pdf
+*.doc
+*.docx
+
+# Created by domain setup and each session (local to your machine)
+.claude/settings.local.json
+.claude/state/
+.claude/protocols/
+.claude/lessons/
+
+# Browser automation artifacts (screenshots, console logs)
+.playwright-mcp/
+*.png
+
+# Python
+__pycache__/
+*.py[cod]
